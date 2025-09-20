@@ -1,0 +1,66 @@
+// Variables
+$primary: #0d6efd;
+$success: #198754;
+$danger: #dc3545;
+$bg-light: #f7f9fc;
+$font-stack: 'Inter', system-ui, sans-serif;
+$max-width: 1100px;
+
+// Mixin
+@mixin card($pad: 1rem) {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: $pad;
+  background: #fff;
+}
+
+// Estilos generales
+body {
+  font-family: $font-stack;
+  background: $bg-light;
+  margin: 0;
+  color: #222;
+}
+
+.site-header {
+  background: $primary;
+  color: #fff;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .resumen-card {
+    @include card(1rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+// Reglas adicionales (mínimo 20)
+h2 { margin-bottom: 0.75rem; }
+.container { max-width: $max-width; }
+.site-main { padding: 1rem 0; }
+.site-footer { background: #fff; border-top: 1px solid #e9ecef; }
+.btn-primary { background: $primary; border: none; }
+.table-responsive { overflow-x: auto; }
+.card { border: none; }
+.form-label { font-size: 0.9rem; }
+input, select { border-radius: 6px; }
+.nav-link { font-weight: 500; }
+.navbar-brand { font-size: 1.3rem; }
