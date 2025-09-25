@@ -1,4 +1,3 @@
-// 📂 reportes.js
 
 document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_KEY = "finanzas_app";
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return JSON.parse(localStorage.getItem(CATEGORIAS_KEY)) || [];
   }
 
-  // ✅ Rellenar filtro de categorías
   function loadCategorias() {
     const categorias = getCategorias();
     reporteCategoria.innerHTML = `<option value="">Todas las categorías</option>`;
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Filtrar transacciones según los criterios
   function filtrarTransacciones() {
     let transacciones = getTransacciones();
 
@@ -49,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTabla(transacciones);
   }
 
-  // ✅ Renderizar tabla
   function renderTabla(data) {
     if (data.length === 0) {
       tablaReportes.innerHTML = `<p class="text-muted">No hay transacciones con los filtros seleccionados.</p>`;
@@ -86,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     tablaReportes.innerHTML = html;
   }
 
-  // ✅ Exportar CSV
   btnExportar.addEventListener("click", () => {
     const data = getTransacciones();
     let csv = "Descripción,Tipo,Categoría,Monto,Fecha\n";
@@ -102,12 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
     a.click();
   });
 
-  // Eventos de filtrado
   reporteMes.addEventListener("change", filtrarTransacciones);
   reporteTipo.addEventListener("change", filtrarTransacciones);
   reporteCategoria.addEventListener("change", filtrarTransacciones);
 
-  // Inicializar
   loadCategorias();
   filtrarTransacciones();
   document.getElementById("year").textContent = new Date().getFullYear();

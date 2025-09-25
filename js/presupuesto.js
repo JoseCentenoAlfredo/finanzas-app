@@ -1,4 +1,3 @@
-// 📂 presupuesto.js
 
 document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_KEY = "finanzas_metas";
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(metas));
   }
 
-  // ✅ Renderizar metas
+  //Renderizar metas
   function renderMetas() {
     const metas = getMetas();
     listaMetas.innerHTML = "";
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listaMetas.appendChild(li);
     });
 
-    // Eliminar meta
+    //Eliminar meta
     document.querySelectorAll("button[data-index]").forEach(btn => {
       btn.addEventListener("click", e => {
         const metas = getMetas();
@@ -48,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Agregar nueva meta
+  //Agregar nueva meta
   formPresupuesto.addEventListener("submit", e => {
     e.preventDefault();
     const nombre = metaNombre.value.trim();
